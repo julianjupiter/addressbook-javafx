@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane fx:id="mainBorderPane" prefHeight="550.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.julianjupiter.addressbook.view.controller.MainController">
+   <top>
+      <BorderPane fx:id="mainHeaderBorderPane" prefHeight="50.0" style="-fx-background-color: #673AB7;" BorderPane.alignment="CENTER">
+         <right>
+            <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="250.0" BorderPane.alignment="CENTER_RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <StackPane prefWidth="30.0">
+                  <FontIcon fx:id="minimizeWindowFontIcon" iconColor="WHITE" iconLiteral="mdi-window-minimize" iconSize="18" />
+               </StackPane>
+               <StackPane prefWidth="30.0">
+                  <FontIcon fx:id="closeWindowFontIcon" iconColor="WHITE" iconLiteral="mdi-window-close" iconSize="18" />
+               </StackPane>
+            </HBox>
+         </right>
+         <left>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="250.0" BorderPane.alignment="CENTER_LEFT">
+               <StackPane alignment="CENTER_RIGHT" prefHeight="150.0">
+                  <padding>
+                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                  </padding>
+                  <ImageView fitHeight="35.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../../../images/logo.png"/>
+                  </ImageView>
+               </StackPane>
+               <StackPane alignment="CENTER_LEFT" prefHeight="150.0">
+                  <padding>
+                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                  </padding>
+                  <Label text="Address Book" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </StackPane>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </left>
+         <center>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <StackPane prefWidth="75.0">
+                  <FontIcon iconColor="WHITE" iconLiteral="mdi-account-plus" iconSize="18"/>
+               </StackPane>
+               <StackPane prefHeight="150.0" prefWidth="460.0">
+                  <TextField maxWidth="460.0" prefHeight="30.0" prefWidth="460.0"/>
+               </StackPane>
+            </HBox>
+         </center>
+      </BorderPane>
+   </top>
+</BorderPane>
