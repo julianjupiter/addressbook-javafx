@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane prefHeight="600.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.julianjupiter.addressbook.view.controller.ContactListController">
+<StackPane prefHeight="600.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.julianjupiter.addressbook.controller.ContactListController">
     <TableView fx:id="contactViewModelTableView" prefHeight="200.0" prefWidth="200.0">
       <columns>
           <TableColumn fx:id="firstNameTableColumn" prefWidth="75.0" text="First Name" />

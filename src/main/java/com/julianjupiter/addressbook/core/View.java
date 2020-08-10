@@ -1,6 +1,5 @@
-package com.julianjupiter.addressbook.util;
+package com.julianjupiter.addressbook.core;
 
-import com.julianjupiter.addressbook.core.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -11,9 +10,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.Callable;
 
-public class Views<T extends Controller, U extends Parent> {
-    private static final String CONTROLLER_SUFFIX = "Controller";
-    private static final String VIEW_SUFFIX = "View";
+public class View<T extends Controller, U extends Parent> {
     private static final String FXML_EXTENSION = ".fxml";
     private final Class<? extends Controller> controllerClass;
     private final ResourceBundle resourceBundle;
@@ -21,32 +18,32 @@ public class Views<T extends Controller, U extends Parent> {
     private FXMLLoader loader;
     private U u;
 
-    private Views(Class<? extends Controller> controllerClass, ResourceBundle resourceBundle, Map<Class<T>, Callable<?>> controllerFactory) throws IOException {
+    private View(Class<? extends Controller> controllerClass, ResourceBundle resourceBundle, Map<Class<T>, Callable<?>> controllerFactory) throws IOException {
         this.controllerClass = controllerClass;
         this.resourceBundle = resourceBundle;
         this.controllerFactory = controllerFactory;
         this.load();
     }
 
-    public static <T extends Controller, U extends Parent> Views<T, U> of(Class<T> controllerClass, Class<U> componentClass) {
+    public static <T extends Controller, U extends Parent> View<T, U> of(Class<T> controllerClass, Class<U> componentClass) {
         try {
-            return new Views<>(controllerClass, null, Map.of());
+            return new View<>(controllerClass, null, Map.of());
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
 
-    public static <T extends Controller, U extends Parent> Views<T, U> of(Class<T> controllerClass, Class<U> componentClass, ResourceBundle resourceBundle) {
+    public static <T extends Controller, U extends Parent> View<T, U> of(Class<T> controllerClass, Class<U> componentClass, ResourceBundle resourceBundle) {
         try {
-            return new Views<>(controllerClass, resourceBundle, Map.of());
+            return new View<>(controllerClass, resourceBundle, Map.of());
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
 
-    public static <T extends Controller, U extends Parent> Views<T, U> of(Class<T> controllerClass, Class<U> componentClass, Map<Class<T>, Callable<?>> controllerFactory) {
+    public static <T extends Controller, U extends Parent> View<T, U> of(Class<T> controllerClass, Class<U> componentClass, Map<Class<T>, Callable<?>> controllerFactory) {
         try {
-            return new Views<>(controllerClass, null, controllerFactory);
+            return new View<>(controllerClass, null, controllerFactory);
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
@@ -59,8 +56,7 @@ public class Views<T extends Controller, U extends Parent> {
     }
 
     private URL fxmlUrl() {
-        var fxmlName = this.controllerClass.getSimpleName().replace(CONTROLLER_SUFFIX, VIEW_SUFFIX) + FXML_EXTENSION;
-        return this.controllerClass.getResource(fxmlName);
+        return this.controllerClass.getResource(this.controllerClass.getSimpleName() + FXML_EXTENSION);
     }
 
     public U component() {

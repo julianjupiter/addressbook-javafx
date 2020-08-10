@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane fx:id="mainBorderPane" prefHeight="550.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.julianjupiter.addressbook.view.controller.MainController">
+<BorderPane fx:id="mainBorderPane" prefHeight="550.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.julianjupiter.addressbook.controller.ContactMainController">
    <top>
       <BorderPane fx:id="mainHeaderBorderPane" prefHeight="50.0" style="-fx-background-color: #673AB7;" BorderPane.alignment="CENTER">
          <right>
@@ -37,7 +37,7 @@
                      <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
                   </padding>
                   <ImageView fitHeight="35.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../../../../../images/logo.png"/>
+                     <Image url="@../../../../images/logo.png"/>
                   </ImageView>
                </StackPane>
                <StackPane alignment="CENTER_LEFT" prefHeight="150.0">

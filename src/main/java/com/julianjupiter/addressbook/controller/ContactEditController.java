@@ -1,4 +1,4 @@
-package com.julianjupiter.addressbook.view.controller;
+package com.julianjupiter.addressbook.controller;
 
 import com.julianjupiter.addressbook.core.Controller;
 
