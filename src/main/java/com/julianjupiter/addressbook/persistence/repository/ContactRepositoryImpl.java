@@ -75,8 +75,6 @@ class ContactRepositoryImpl implements ContactRepository {
                 entityManager.remove(contact);
                 transaction.commit();
             } catch (Exception exception) {
-                exception.printStackTrace();
-
                 if (transaction != null && transaction.isActive()) {
                     transaction.rollback();
                 }
@@ -84,5 +82,19 @@ class ContactRepositoryImpl implements ContactRepository {
                 entityManager.close();
             }
         });
+    }
+
+    @Override
+    public List<Contact> findByFirstNameOrLastName(String name) {
+        var entityManager = this.entityManager();
+
+        try {
+            return entityManager
+                    .createQuery("SELECT c FROM Contact c WHERE UPPER(c.lastName) LIKE :name OR UPPER(c.firstName) LIKE :name", Contact.class)
+                    .setParameter("name", "%" + name.toUpperCase() + "%")
+                    .getResultList();
+        } finally {
+            entityManager.close();
+        }
     }
 }

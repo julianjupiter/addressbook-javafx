@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane prefHeight="550.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.julianjupiter.addressbook.controller.MainController">
+   <left>
+      <TableView fx:id="contactTableView" prefHeight="600.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="firstNameTableColumn" prefWidth="75.0" text="First Name" />
+          <TableColumn fx:id="lastNameTableColumn" prefWidth="75.0" text="Last Name" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </left>
+   <center>
+      <BorderPane fx:id="contactBorderPane" prefHeight="200.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <HBox fx:id="contactActionHBox" prefHeight="40.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <BorderPane fx:id="contactActionBorderPane" prefHeight="40.0" BorderPane.alignment="CENTER">
+               <left>
+                  <HBox prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="contactActionLabel" prefHeight="40.0" prefWidth="200.0" text="Acton" textFill="#3f51b5">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+               </left>
+               <right>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="70.0">
+                     <children>
+                        <BorderPane fx:id="firstActionBorderPane" prefHeight="200.0" prefWidth="200.0" />
+                        <BorderPane fx:id="secondActionBorderPane" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+         </top>
+      </BorderPane>
+   </center>
+   <top>
+      <BorderPane fx:id="headerBorderPane" prefHeight="50.0" style="-fx-background-color: #3F51B5;" BorderPane.alignment="CENTER">
+         <left>
+            <HBox fx:id="headerHBox" prefWidth="250.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="250.0">
+                     <children>
+                        <Label id="applicationTitle" fx:id="applicationTitle" prefHeight="50.0" stylesheets="@../../../../css/style.css" text="Address Book" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </left>
+         <center>
+            <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+               <children>
+                  <FontIcon fx:id="newContactFontIcon" iconColor="WHITE" iconLiteral="mdi-account-plus" iconSize="18">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </FontIcon>
+                  <TextField fx:id="searchContactTextField" prefHeight="30.0" prefWidth="459.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </center>
+         <right>
+            <HBox prefWidth="250.0" BorderPane.alignment="CENTER_RIGHT">
+               <children>
+                  <Pane prefWidth="250.0">
+                     <children>
+                        <FontIcon fx:id="minimizeWindowFontIcon" iconColor="WHITE" iconLiteral="mdi-window-minimize" iconSize="18" layoutX="201.0" layoutY="31.0" />
+                        <FontIcon fx:id="closeWindowFontIcon" iconColor="WHITE" iconLiteral="mdi-window-close" iconSize="18" layoutX="227.0" layoutY="31.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </right>
+      </BorderPane>
+   </top>
+</BorderPane>

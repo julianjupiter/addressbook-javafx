@@ -14,6 +14,8 @@ public interface ContactService {
 
     Optional<ContactDto> findById(Long id);
 
+    List<ContactDto> findByFirstNameOrLastName(String name);
+
     ContactDto save(ContactDto contactDto);
 
     void deleteById(Long id);

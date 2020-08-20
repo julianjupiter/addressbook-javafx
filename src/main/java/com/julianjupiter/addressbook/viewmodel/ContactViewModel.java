@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ContactViewModel {
-    private final ContactService contactService;
+    private ContactService contactService;
     private final LongProperty id = new SimpleLongProperty();;
     private final StringProperty lastName = new SimpleStringProperty();
     private final StringProperty firstName = new SimpleStringProperty();
@@ -26,6 +26,10 @@ public class ContactViewModel {
     private final ObjectProperty<OffsetDateTime> createdAt = new SimpleObjectProperty<>();
     private final ObjectProperty<OffsetDateTime> updatedAt = new SimpleObjectProperty<>();
     private final ObservableList<ContactViewModel> contactPropertiesObservable = FXCollections.observableArrayList();
+
+    public ContactViewModel() {
+
+    }
 
     public ContactViewModel(ContactService contactService) {
         this.contactService = contactService;
@@ -143,7 +147,7 @@ public class ContactViewModel {
     public List<ContactViewModel> findAllContacts() {
         List<ContactViewModel> contactViewModels = this.contactService.findAll().stream()
                 .map(contactDto -> {
-                    return this.setId(contactDto.getId())
+                    return new ContactViewModel().setId(contactDto.getId())
                             .setFirstName(contactDto.getFirstName())
                             .setLastName(contactDto.getLastName())
                             .setAddress(contactDto.getAddress())
@@ -153,20 +157,18 @@ public class ContactViewModel {
                             .setUpdatedAt(contactDto.getUpdatedAt());
                 })
                 .collect(Collectors.toUnmodifiableList());
-        contactViewModels.forEach(contactDto -> {
-            System.out.println(contactDto.getId() + " " + contactDto.getFirstName() + " " + contactDto.getLastName());
-        });
 
         return contactViewModels;
     }
 
     public void createContact() {
         var contactDto = new ContactDto()
-                .setFirstName("Jose")
-                .setLastName("Rizal")
-                .setAddress("Calamba, Laguna")
-                .setMobileNumber("09165678901")
-                .setEmailAddress("joserizal@gmail.com");
+                .setFirstName("Andres")
+                .setLastName("Bonifacio")
+                .setAddress("Tondo, Manila")
+                .setMobileNumber("09165678902")
+                .setEmailAddress("andresbonifacio@gmail.com");
         this.contactService.save(contactDto);
     }
+
 }

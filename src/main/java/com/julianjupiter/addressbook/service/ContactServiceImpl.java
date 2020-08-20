@@ -29,6 +29,13 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
+    public List<ContactDto> findByFirstNameOrLastName(String name) {
+        return this.contactRepository.findByFirstNameOrLastName(name).stream()
+                .map(this.contactMapper::fromEntityToDto)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    @Override
     public ContactDto save(ContactDto contactDto) {
         var contact = this.contactRepository.save(this.contactMapper.fromDtoToEntity(contactDto));
         return this.contactMapper.fromEntityToDto(contact);
