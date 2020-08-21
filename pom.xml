@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.julianjupiter</groupId>
     <artifactId>addressbook-javafx</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.jfxtras</groupId>
             <artifactId>jmetro</artifactId>
-            <version>11.6.13</version>
+            <version>11.6.12</version>
         </dependency>
         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
