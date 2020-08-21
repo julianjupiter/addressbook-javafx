@@ -24,7 +24,7 @@ The database file can also be opened by any database client/manager (I recommend
 ```bash
 $ cd addressbook-javafx
 $ ./mvnw clean package
-$ java -jar java -jar ./target/addressbook-javafx-0.0.1.jar
+$ java -jar java -jar ./target/addressbook-javafx-0.0.2.jar
 ```
 
 - Windows
@@ -32,7 +32,7 @@ $ java -jar java -jar ./target/addressbook-javafx-0.0.1.jar
 ```bash
 > cd addressbook-javafx
 > .\mvnw clean package
-> java -jar java -jar .\target\addressbook-javafx-0.0.1.jar
+> java -jar java -jar .\target\addressbook-javafx-0.0.2.jar
 ```
 
 ## Screenshots
