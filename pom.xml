@@ -10,7 +10,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.release>11</maven.compiler.release>
         <javafx.version>14</javafx.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.1.210</h2.version>
         <hibernate.orm.version>5.4.18.Final</hibernate.orm.version>
     </properties>
     <dependencies>
